@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="navbar">
+            <img src="./Images/logo.png" alt="" class="logo">
+            <div class="user">
+                <button type="button">Explore</button>
+                <img src="./Images/user.png" alt="">
+            </div>
+        </div>
+        <div class="container">
+            <div class="info">
+                <h1>DISCOVER</h1>
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ab blanditiis?
+                     Repellat autem natus eum officiis, optio nulla exercitationem consequatur laboriosam accusamus,
+                     doloribus aliquid provident, facilis dolores ea. Omnis, voluptas.</P>
+                     <input type="text" placeholder="search">
+            </div>
+        </div>
+        <div class="slider">
+            <img src="./Images/left-arrow.png" id="prev">
+                <div class="preview">
+                    <img src="./Images/small1.png"  class="active thumbnail">
+                    <img src="./Images/small2.png"  class="thumbnail">
+                    <img src="./Images/small3.png"  class="thumbnail">
+                    <img src="./Images/small4.png"  class="thumbnail">
+                    <img src="./Images/small5.png"  class="thumbnail">
+                </div>
+            <img src="./Images/right-arrow.png" id="next">
+        </div>
+    </div>
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+
+        var backgroundImg = new Array(
+            "./Images/bg1.png",
+            "./Images/bg2.png",
+            "./Images/bg3.png",
+            "./Images/bg4.png",
+            "./Images/bg5.png",
+        );
+        let i = 0;
+        next.onclick = function(){
+            if (i < 4){
+                hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+                thumbnail[i+1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+            i++;
+            }
+           
+        }
+        prev.onclick = function(){
+            if (i > 0){
+                hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+                thumbnail[i-1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+            i--;
+            }
+           
+        }
+
+    </script>
+</body>
+</html>
